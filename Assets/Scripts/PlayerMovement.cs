@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.8f * 2;
     public float jumpHeight = 3f;
 
+    public GameObject interactText;
+
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
@@ -21,9 +23,30 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     Vector3 velocity;
 
+    private Ray ray;
+    private RaycastHit hit;
+
+    void Start()
+    {
+        interactText.gameObject.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {
+        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        
+
+        if (Physics.Raycast(ray, out hit) && hit.collider.tag == "Interact")
+        {
+            interactText.gameObject.SetActive(true);
+            Debug.Log(hit.collider.gameObject.name);
+        }
+        else
+        {
+            interactText.gameObject.SetActive(false);
+        }
+
         //Reset game by pressing Y
         if (Input.GetKeyDown(KeyCode.Y))
         {

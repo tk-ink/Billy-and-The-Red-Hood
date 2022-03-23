@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Enemy
   - Weapon
+  - Note
+  - Radio
+  - VoiceMail
+  - Interact
   layers:
   - Default
   - TransparentFX
