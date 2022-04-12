@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Menu.unity
+    guid: 02123b316afd36e4c8198f7ce45fa76d
+  - enabled: 1
+    path: Assets/Inside Trailer Scene.unity
+    guid: c5391eaffcb17f14eb4163b54e070eac
+  - enabled: 1
     path: Assets/Woods Scene.unity
     guid: 3555aaaddd6ac89418f3c3c2da332c99
   m_configObjects: {}

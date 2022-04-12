@@ -10,6 +10,7 @@ TagManager:
   - Radio
   - VoiceMail
   - Interact
+  - bodyPart
   layers:
   - Default
   - TransparentFX

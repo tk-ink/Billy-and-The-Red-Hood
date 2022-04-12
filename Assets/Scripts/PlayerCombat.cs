@@ -11,19 +11,50 @@ public class PlayerCombat : MonoBehaviour
     public AudioSource stickBreakSound;
     public GameObject stickBreakText;
 
+    public GameObject settingsMenu;
+
+    private bool settingsOpen = false;
+
 
     void Start()
     {
         stickBreakText.gameObject.SetActive(false);
+        settingsMenu.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (PlayerMovement.sticksCarried >= 1 && Input.GetKey(KeyCode.Mouse0))
+        if (PlayerMovement.sticksCarried >= 1 && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape) && !settingsOpen)
+        {
+            openSettings();
+        }else if (Input.GetKeyDown(KeyCode.Escape) && settingsOpen)
+        {
+            closeSettings();
+        }
+    }
+
+    public void openSettings()
+    {
+        settingsOpen = true;
+        settingsMenu.gameObject.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+    }
+
+    public void closeSettings()
+    {
+        settingsOpen = false;
+        settingsMenu.gameObject.SetActive(false);
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
     void Attack()
