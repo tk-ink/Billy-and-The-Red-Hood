@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
 
     public static int sticksCarried = 0;
 
+    public bool playerAllowedtoInteract = false;
+
 
     bool isGrounded;
     Vector3 velocity;
@@ -28,23 +31,29 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        interactText.gameObject.SetActive(false);
+        //interactText.gameObject.SetActive(false);
     }
     // Update is called once per frame
     void Update()
     {
         ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        
-
         if (Physics.Raycast(ray, out hit) && hit.collider.tag == "Interact")
         {
-            interactText.gameObject.SetActive(true);
-            Debug.Log(hit.collider.gameObject.name);
+            //You can still interact with anything at any distance, but the prompt will no longer show
+            float distance = Vector3.Distance(hit.collider.gameObject.transform.position, gameObject.transform.position);
+            if(distance < 5)
+            {
+                playerAllowedtoInteract = true;
+                interactText.gameObject.SetActive(true);
+                Debug.Log(hit.collider.gameObject.name);
+            }
+            
         }
         else
         {
-            interactText.gameObject.SetActive(false);
+           interactText.gameObject.SetActive(false);
+            interactText.GetComponent<Text>().text = "";
         }
 
         //Reset game by pressing Y
