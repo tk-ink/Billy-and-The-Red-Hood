@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class PlayerCombat : MonoBehaviour
 
     private bool settingsOpen = false;
 
+    public static Action shootInput;
+
 
     void Start()
     {
@@ -25,6 +28,11 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButton(0))
+        {
+            shootInput?.Invoke();
+        }
+
         if (PlayerMovement.sticksCarried >= 1 && Input.GetKeyDown(KeyCode.Mouse0))
         {
             Attack();
