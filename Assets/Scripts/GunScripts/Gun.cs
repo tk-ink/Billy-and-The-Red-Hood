@@ -15,11 +15,13 @@ public class Gun : MonoBehaviour
 
     public GameObject muzzleFlash;
     public GameObject redHood;
-
     public GameObject ammoText;
+
+    public bool gunEquipped = false;
 
     private void Start()
     {
+        gameObject.SetActive(false);
         PlayerCombat.shootInput += Shoot;
         muzzleFlash.gameObject.SetActive(false);
         updateAmmoUI();
@@ -49,7 +51,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-
+  
 
     private void Update()
     {
