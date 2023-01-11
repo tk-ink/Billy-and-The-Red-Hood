@@ -7,6 +7,10 @@ public class ammoCollect : MonoBehaviour
 
     public GameObject gunHolder;
     
+    void Start()
+    {
+        gunHolder = GameObject.Find("GunHolder");
+    }
 
     private void OnTriggerEnter(Collider other)
     {

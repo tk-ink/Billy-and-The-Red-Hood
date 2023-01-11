@@ -440,4 +440,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunHolder: {fileID: 0}
-  grabAmmo: {fileID: 0}

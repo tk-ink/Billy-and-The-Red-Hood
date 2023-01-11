@@ -110,7 +110,7 @@ GameObject:
   - component: {fileID: 8264838232515642893}
   - component: {fileID: 7576868387778249451}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: FakeGunShapes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -208,14 +208,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3454113377614631069}
-  m_LocalRotation: {x: -0, y: 0.6843207, z: -0, w: 0.7291812}
+  m_LocalRotation: {x: 0, y: 0.68431807, z: 0, w: 0.7291837}
   m_LocalPosition: {x: -28.41, y: 2.3375, z: 7.4}
   m_LocalScale: {x: 1.25, y: 1.5, z: 1.25}
   m_Children:
   - {fileID: 891613390017178794}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 86.364, z: 0}
 --- !u!114 &3454113377614631070
 MonoBehaviour:
   m_ObjectHideFlags: 0

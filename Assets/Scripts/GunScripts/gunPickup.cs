@@ -22,7 +22,7 @@ public class gunPickup : MonoBehaviour
         if (!gunHolder.GetComponent<Gun>().gunEquipped)
         {
             gunHolder.GetComponent<Gun>().gunEquipped = true;
-            gunHolder.GetComponent<Gun>().gameObject.SetActive(true);
+            gunHolder.GetComponent<Gun>().transform.localScale = new Vector3(1, 1, 1);
             gunHolder.GetComponent<Gun>().ammoCollectSound();
 
             Destroy(gameObject);

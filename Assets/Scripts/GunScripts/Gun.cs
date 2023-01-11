@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        gameObject.SetActive(false);
+        transform.localScale = new Vector3(0, 0, 0);
         PlayerCombat.shootInput += Shoot;
         muzzleFlash.gameObject.SetActive(false);
         updateAmmoUI();
@@ -31,7 +31,7 @@ public class Gun : MonoBehaviour
 
     public void Shoot()
     {
-        if(gunData.currentAmmo > 0)
+        if(gunData.currentAmmo > 0 && gunEquipped)
         {
             if(CanShoot())
             {
@@ -51,7 +51,8 @@ public class Gun : MonoBehaviour
         }
     }
 
-  
+
+
 
     private void Update()
     {
